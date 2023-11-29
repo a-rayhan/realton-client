@@ -5,15 +5,17 @@ import { MdOutlineLibraryAdd } from "react-icons/md";
 import { SlEnergy } from "react-icons/sl";
 import { NavLink } from "react-router-dom";
 
-const AllPropertiesCard = () => {
+const AllPropertiesCard = ({ property }) => {
+
+    const { title, price, location, username, photo, userphoto } = property;
     return (
         <div className="bg-white rounded-xl cursor-pointer">
             <div className="rounded-t-xl h-64 w-full relative">
-                <img src="https://homez.ibthemespro.com/images/listings/g1-1.jpg" alt="" className="rounded-t-xl w-full h-full object-cover" />
+                <img src={photo} className="rounded-t-xl h-full w-full object-cover" />
 
                 <div className="absolute bottom-6 left-6">
                     <p className="bg-white px-3 py-1 rounded-lg text-sm font-semibold">
-                        Net worth: $200k
+                        ${price}
                     </p>
                 </div>
 
@@ -33,11 +35,11 @@ const AllPropertiesCard = () => {
 
             <div className="p-6">
                 <NavLink to='/propertiesdetails' className="text-lg font-semibold mb-1 hover:underline">
-                    Equestrian  Family Home
+                    {title}
                 </NavLink>
 
                 <p className="text-sm">
-                    New York City, CA, USA
+                    {location}
                 </p>
 
                 <div className="flex items-center gap-6 my-4">
@@ -66,7 +68,7 @@ const AllPropertiesCard = () => {
                 <div className="flex justify-between mt-4">
                     <div className="flex gap-4">
                         <div className="w-10 h-10 rounded-full bg-slate-400">
-                            <img src="https://homez.ibthemespro.com/images/testimonials/testimonial-1.png" alt="" className="w-full h-full rounded-full object-cover" />
+                            <img src={userphoto} alt="" className="w-full h-full rounded-full object-cover" />
                         </div>
 
                         <div>
@@ -75,7 +77,7 @@ const AllPropertiesCard = () => {
                             </p>
 
                             <p className="font-semibold mb-1">
-                                Leslie Alexander
+                                {username}
                             </p>
                         </div>
                     </div>

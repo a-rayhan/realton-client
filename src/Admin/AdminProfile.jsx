@@ -1,6 +1,10 @@
 import { RiHome3Line } from "react-icons/ri";
+import useAdmin from "../Hooks/useAdmin";
+import useAuth from "../Hooks/useAuth";
 
 const AdminProfile = () => {
+    const [isAdmin] = useAdmin();
+    const { user } = useAuth();
     return (
         <div>
             <div className="mb-14">
@@ -17,18 +21,20 @@ const AdminProfile = () => {
 
                 <div>
                     <p className="text-2xl font-semibold">
-                        Abu Rayhan
+                        {user?.displayName}
                     </p>
 
                     <p className="text-sm mb-3">
-                        aburayhandh@gmail.com
+                        {user?.email}
                     </p>
                     <div className="inline-flex gap-1 md:flex-col">
                         <p>
                             Role
                         </p>
                         <p className="bg-green-500 text-white px-2 text-lg rounded inline-block">
-                            Admin
+                            {
+                                isAdmin && 'Admin' || 'User'
+                            }
                         </p>
                     </div>
                 </div>

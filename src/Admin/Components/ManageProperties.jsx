@@ -1,6 +1,10 @@
+import useProperties from "../../Hooks/useProperties";
 import ManagePropertiesTable from "./ManagePropertiesTable";
 
 const ManageProperties = () => {
+
+    const [properties] = useProperties();
+
     return (
         <div>
             <div className="mb-14">
@@ -13,7 +17,7 @@ const ManageProperties = () => {
             </div>
 
             <div>
-                <ManagePropertiesTable />
+                <ManagePropertiesTable properties={properties} />
             </div>
         </div>
     );

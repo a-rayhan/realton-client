@@ -4,15 +4,25 @@ import DashboardNavigation from "../Components/DashboardNavigation";
 import AdminDeshboardNav from "../Components/DeshboardSiderNav/AdminDeshboardNav";
 import AgentDashboardNav from "../../Agent/AgentDashboardNav";
 import UserDashboardNav from "../../User/Components/UserDashboardNav";
+import useAdmin from "../../Hooks/useAdmin";
 
 const DashboardLayout = () => {
+
+    const [isAdmin] = useAdmin();
+    console.log(isAdmin);
+
     return (
         <div className="max-w-full mx-auto px-6">
             <DashboardNavbar />
             <div className="flex">
                 <div className="w-[300px] h-screen hidden xl:block">
+
+                    {
+                        isAdmin && <AdminDeshboardNav /> || <UserDashboardNav />
+                    }
+
                     {/* <AdminDeshboardNav /> */}
-                    <AgentDashboardNav />
+                    {/* <AgentDashboardNav /> */}
                     {/* <UserDashboardNav /> */}
                 </div>
 

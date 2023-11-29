@@ -1,7 +1,13 @@
 import AllPropertiesCard from "../Components/AllPropertiesCard";
 import AllPropertiesHeader from "../Components/AllPropertiesHeader";
+import useProperties from "../../Hooks/useProperties";
 
 const AllProperties = () => {
+
+    const [properties] = useProperties();
+
+    const propertiesFilter = properties.filter(property => property.status === 'accepted');
+
     return (
         <div>
             <div>
@@ -15,15 +21,14 @@ const AllProperties = () => {
 
                 <div className="mt-14">
                     <p className="text-sm mb-5">
-                        Showing 25 results
+                        Showing {propertiesFilter.length} results
                     </p>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <AllPropertiesCard />
-                        <AllPropertiesCard />
-                        <AllPropertiesCard />
-                        <AllPropertiesCard />
-                        <AllPropertiesCard />
+
+                        {
+                            propertiesFilter.map(property => <AllPropertiesCard key={property._id} property={property} />)
+                        }
                     </div>
                 </div>
             </div>

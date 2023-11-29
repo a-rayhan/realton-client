@@ -45,6 +45,36 @@ const ManageUserTable = () => {
         });
     }
 
+    const handleMakeAgent = user => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "question",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, Make Agent!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axiosSecure.patch(`/users/agent/${user._id}`)
+                    .then(res => {
+                        console.log(res.data);
+                        if (res.data.modifiedCount > 0) {
+                            Swal.fire({
+                                icon: "success",
+                                title: `${user.email} is agent now`
+                            });
+
+                            refetch();
+                        }
+                    })
+            }
+
+
+
+        });
+    }
+
     const handleDeleteUser = id => {
         console.log(id);
         Swal.fire({
@@ -88,7 +118,7 @@ const ManageUserTable = () => {
                     <tbody>
 
                         {
-                            users.map((user, index) => <ManageUserTableRow key={user._id} user={user} index={index} handleDeleteUser={handleDeleteUser} handleMakeAdmin={handleMakeAdmin} />)
+                            users.map((user, index) => <ManageUserTableRow key={user._id} user={user} index={index} handleDeleteUser={handleDeleteUser} handleMakeAdmin={handleMakeAdmin} handleMakeAgent={handleMakeAgent} />)
                         }
                     </tbody>
                 </table>

@@ -9,7 +9,7 @@ const AdminProfile = () => {
         <div>
             <div className="mb-14">
                 <p className="text-2xl font-semibold mb-2">
-                    Howdy, Abu!
+                    Howdy, {user?.displayName}!
                 </p>
                 <p className="text-sm">
                     We are glad to see you again!

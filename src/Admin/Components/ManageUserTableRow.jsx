@@ -1,4 +1,4 @@
-const ManageUserTableRow = ({ user, index, handleDeleteUser, handleMakeAdmin }) => {
+const ManageUserTableRow = ({ user, index, handleDeleteUser, handleMakeAdmin, handleMakeAgent }) => {
     const { _id, name, email } = user;
     return (
         <tr>
@@ -17,9 +17,25 @@ const ManageUserTableRow = ({ user, index, handleDeleteUser, handleMakeAdmin }) 
                 </p> */}
 
 
-                {
-                    user.role == 'admin' ? 'Admin' : <p onClick={() => handleMakeAdmin(user)} className="bg-[#e5f0fd] px-6 py-2 rounded-full inline-flex text-[#3554d1] mr-3 cursor-pointer">Make an admin</p>
+                {/* {
+                    user.role == 'admin' && 'Admin' || <p onClick={() => handleMakeAdmin(user)} className="bg-[#e5f0fd] px-6 py-2 rounded-full inline-flex text-[#3554d1] mr-3 cursor-pointer">Make an admin</p>
                 }
+
+                {
+                    user.role == 'agent' && 'Agent' || <p onClick={() => handleMakeAgent(user)} className="bg-[#e5f0fd] px-6 py-2 rounded-full inline-flex text-[#3554d1] mr-3 cursor-pointer">Make an agent</p>
+                } */}
+                {
+                    user.role == 'admin' && 'Admin' || user.role == 'agent' && 'Agent' ||
+                    <>
+                        <p onClick={() => handleMakeAdmin(user)} className="bg-[#e5f0fd] px-6 py-2 rounded-full inline-flex text-[#3554d1] mr-3 cursor-pointer">Make an admin</p>
+
+                        <p onClick={() => handleMakeAgent(user)} className="bg-[#e5f0fd] px-6 py-2 rounded-full inline-flex text-[#3554d1] mr-3 cursor-pointer">Make an agent</p>
+                    </>
+                }
+{/* 
+                {
+                    user.role == 'agent' && 'Agent' || <p onClick={() => handleMakeAgent(user)} className="bg-[#e5f0fd] px-6 py-2 rounded-full inline-flex text-[#3554d1] mr-3 cursor-pointer">Make an agent</p>
+                } */}
             </td>
             <td>
                 <p className="bg-[#e5f0fd] px-6 py-2 rounded-full inline-flex text-[#3554d1] mr-3 cursor-pointer">

@@ -106,7 +106,7 @@ const Login = () => {
                                         Password <span className="text-[#ff566a]">*</span>
                                     </label>
 
-                                    <input type="password" name="password" placeholder="Enter your password" className="max-w-2xl bg-[#5e5beb] py-3 px-6 rounded-lg text-white placeholder:text-lg placeholder:text-white" />
+                                    <input type="text" name="password" placeholder="Enter your password" className="max-w-2xl bg-[#5e5beb] py-3 px-6 rounded-lg text-white placeholder:text-lg placeholder:text-white" />
                                 </div>
 
                                 <p className="px-4 text-[#ff566a] text-sm mt-2">

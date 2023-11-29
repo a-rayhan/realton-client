@@ -1,11 +1,13 @@
 import { RiHome3Line } from "react-icons/ri";
+import useAuth from "../../Hooks/useAuth";
 
 const DashboardHome = () => {
+    const { user } = useAuth();
     return (
         <div>
             <div className="mb-14">
                 <p className="text-2xl font-semibold mb-2">
-                    Howdy, Abu!
+                    Howdy, {user?.displayName}!
                 </p>
                 <p className="text-sm">
                     We are glad to see you again!
@@ -17,11 +19,11 @@ const DashboardHome = () => {
 
                 <div>
                     <p className="text-2xl font-semibold">
-                        Abu Rayhan
+                        {user?.displayName}
                     </p>
 
                     <p className="text-sm mb-3">
-                        aburayhandh@gmail.com
+                        {user?.email}
                     </p>
                     <div className="inline-flex gap-1 md:flex-col">
                         <p>

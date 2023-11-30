@@ -20,6 +20,9 @@ import ManageProperties from "../Admin/Components/ManageProperties";
 import ManageReviews from "../Admin/ManageReviews";
 import ManageUser from "../Admin/ManageUser";
 import UpdateProperty from "../Agent/UpdateProperty";
+import PrivateRoutes from "./PrivateRoute";
+import AdminRoute from "./AdminRoute";
+import AgentRoute from "./AgentRoute";
 
 const router = createBrowserRouter([
     {
@@ -36,7 +39,7 @@ const router = createBrowserRouter([
             },
             {
                 path: 'propertiesdetails',
-                element: <PropertyDetails />
+                element: <PrivateRoutes><PropertyDetails /></PrivateRoutes>
             },
             {
                 path: 'login',
@@ -54,59 +57,59 @@ const router = createBrowserRouter([
         children: [
             {
                 path: 'home',
-                element: <DashboardHome />
+                element: <PrivateRoutes><DashboardHome /></PrivateRoutes>
             },
             {
                 path: 'agentprofile',
-                element: <AgentProfile />
+                element: <AgentRoute><AgentProfile /></AgentRoute>
             },
             {
                 path: 'myaddedproperties',
-                element: <MyAddedProperties />
+                element: <AgentRoute><MyAddedProperties /></AgentRoute>
             },
             {
                 path: 'updateproperty',
-                element: <UpdateProperty />
+                element: <AgentRoute><UpdateProperty /></AgentRoute>
             },
             {
                 path: 'mysold',
-                element: <MySoldProperties />
+                element: <AgentRoute><MySoldProperties /></AgentRoute>
             },
             {
                 path: 'requestedproperties',
-                element: <RequestedProperties />
+                element: <AgentRoute><RequestedProperties /></AgentRoute>
             },
             {
                 path: 'adminprofile',
-                element: <AdminProfile />
+                element: <AdminRoute><AdminProfile /></AdminRoute>
             },
             {
                 path: 'manageproperties',
-                element: <ManageProperties />
+                element: <AdminRoute><ManageProperties /></AdminRoute>
             },
             {
                 path: 'manageusers',
-                element: <ManageUser />
+                element: <AdminRoute><ManageUser /></AdminRoute>
             },
             {
                 path: 'managereviews',
-                element: <ManageReviews />
+                element: <AdminRoute><ManageReviews /></AdminRoute>
             },
             {
                 path: 'addnew',
-                element: <AddNewProperty />
+                element: <AgentRoute><AddNewProperty /></AgentRoute>
             },
             {
                 path: 'favourites',
-                element: <Favourites />
+                element: <PrivateRoutes><Favourites /></PrivateRoutes>
             },
             {
                 path: 'bought',
-                element: <PropertyBought />
+                element: <PrivateRoutes><PropertyBought /></PrivateRoutes>
             },
             {
                 path: 'userreview',
-                element: <Reviews />
+                element: <PrivateRoutes><Reviews /></PrivateRoutes>
             }
         ]
     }

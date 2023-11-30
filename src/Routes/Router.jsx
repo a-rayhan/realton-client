@@ -23,11 +23,13 @@ import UpdateProperty from "../Agent/UpdateProperty";
 import PrivateRoutes from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
 import AgentRoute from "./AgentRoute";
+import ErrorPage from "../ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <UserLayout />,
+        errorElement: <ErrorPage />,
         children: [
             {
                 path: '/',

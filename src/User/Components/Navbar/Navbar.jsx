@@ -22,14 +22,14 @@ const Navbar = () => {
 
     return (
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center h-24">
-            <div className="flex justify-between items-center gap-x-2">
+            <NavLink to='/' className="flex justify-between items-center gap-x-2 cursor-pointer">
                 <div className="h-12 w-12 rounded-full bg-[#eb6753] flex justify-center items-center">
                     <HiHomeModern className='text-2xl font-bold text-white' />
                 </div>
                 <p className="text-2xl font-bold">
                     Realton
                 </p>
-            </div>
+            </NavLink>
 
             <DesktopNavbar />
 
@@ -50,15 +50,9 @@ const Navbar = () => {
                                         <li className="text-center mb-5">{user?.email}</li>
                                         <div className="flex flex-col">
                                             <li>
-                                                <NavLink to='/login' className='py-4 px-3 hover:bg-black hover:text-white font-medium text-base'>
+                                                <NavLink to='/dashboard/home' className='py-4 px-3 hover:bg-black hover:text-white font-medium text-base'>
                                                     <IoCompassOutline className='text-xl' />
                                                     Dashboard
-                                                </NavLink>
-                                            </li>
-                                            <li>
-                                                <NavLink to='/login' className='py-4 px-3 hover:bg-black hover:text-white font-medium text-base mb-3'>
-                                                    <IoCompassOutline className='text-xl' />
-                                                    My Profile
                                                 </NavLink>
                                             </li>
                                             <li>

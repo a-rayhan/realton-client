@@ -19,25 +19,25 @@ const MobileNavbar = () => {
                 </li>
 
                 <li className="px-8 py-3 hover:bg-[#f7f7f7] cursor-pointer">
-                    <NavLink to='/brand' className={({ isActive, isPending }) => isPending ? "" : isActive ? "text-[#eb6753]" : ""}>
+                    <NavLink to='/properties' className={({ isActive, isPending }) => isPending ? "" : isActive ? "text-[#eb6753]" : ""}>
                         Properties
                     </NavLink>
                 </li>
 
                 <li className="px-8 py-3 hover:bg-[#f7f7f7] cursor-pointer">
-                    <NavLink to='/shop' className={({ isActive, isPending }) => isPending ? "" : isActive ? "text-[#eb6753]" : ""}>
+                    <NavLink to='/dashboard/home' className={({ isActive, isPending }) => isPending ? "" : isActive ? "text-[#eb6753]" : ""}>
                         Dashboard
                     </NavLink>
                 </li>
             </ul>
 
             <div className="px-8 py-3 text-lg font-medium cursor-pointer bg-[#eb675312]">
-                <div className="flex items-center gap-x-2">
+                <NavLink to='/login' className="flex items-center gap-x-2">
                     <CgProfile className='text-2xl' />
                     <NavLink>
                         Login/Register
                     </NavLink>
-                </div>
+                </NavLink>
             </div>
 
             <hr className="my-8" />

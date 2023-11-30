@@ -17,9 +17,9 @@ const AgentProfile = () => {
                 </p>
             </div>
 
-            <div className="bg-white p-6 rounded-2xl mb-8 max-w-lg flex flex-col md:flex-row justify-center items-center gap-7">
-                <img src="https://images.unsplash.com/photo-1508978644997-53cc5bfb8a03?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" className="w-40 h-40 rounded-full object-cover mb-4" />
-
+            <div alt="" className="bg-white p-6 rounded-2xl mb-8 max-w-lg flex flex-col md:flex-row justify-center items-center gap-7">
+                <img src={user?.photoURL} alt="" className="w-40 h-40 rounded-full object-cover mb-4" />
+                
                 <div>
                     <p className="text-2xl font-semibold">
                         {user?.displayName}

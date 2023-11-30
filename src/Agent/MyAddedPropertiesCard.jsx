@@ -4,7 +4,8 @@ import { IoBedOutline } from "react-icons/io5";
 import { MdOutlineLibraryAdd } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 
-const MyAddedPropertiesCard = () => {
+const MyAddedPropertiesCard = ({ property }) => {
+    const { title, price, location, username, photo, userphoto, status } = property;
     return (
         <div className="bg-white rounded-xl cursor-pointer">
             <div className="rounded-t-xl h-52 w-full relative">
@@ -12,14 +13,24 @@ const MyAddedPropertiesCard = () => {
 
                 <div className="absolute bottom-6 left-6">
                     <p className="bg-white px-3 py-1 rounded-lg text-sm font-semibold">
-                        Net worth: $200k
+                        ${price}
                     </p>
                 </div>
 
                 <div className="absolute bottom-6 right-6">
-                    <p className="bg-green-800 text-white px-3 py-1 rounded-lg text-sm font-semibold">
-                        verified
-                    </p>
+                    {
+                        status === 'accepted' ?
+                            <>
+                                <p className="bg-green-800 text-white px-3 py-1 rounded-lg text-sm font-semibold">
+                                    Verified
+                                </p>
+                            </> :
+                            <>
+                                <p className="bg-red-200 text-red-800 px-3 py-1 rounded-lg text-sm font-semibold">
+                                    Pending
+                                </p>
+                            </>
+                    }
                 </div>
 
                 <div className="absolute top-6 right-6">
@@ -37,11 +48,11 @@ const MyAddedPropertiesCard = () => {
 
             <div className="p-6">
                 <p className="text-lg font-semibold mb-1 hover:underline">
-                    Equestrian  Family Home
+                    {title}
                 </p>
 
                 <p className="text-sm">
-                    New York City, CA, USA
+                    {location}
                 </p>
 
                 <div className="flex justify-between items-center gap-8 my-4">
@@ -85,7 +96,7 @@ const MyAddedPropertiesCard = () => {
                 <div className="mt-4">
                     <div className="flex gap-4">
                         <div className="w-10 h-10 rounded-full bg-slate-400">
-                            <img src="https://homez.ibthemespro.com/images/testimonials/testimonial-1.png" alt="" className="w-full h-full rounded-full object-cover" />
+                            <img src={userphoto} alt="" className="w-full h-full rounded-full object-cover" />
                         </div>
 
                         <div>
@@ -94,7 +105,7 @@ const MyAddedPropertiesCard = () => {
                             </p>
 
                             <p className="font-semibold mb-1">
-                                Leslie Alexander
+                                {username}
                             </p>
                         </div>
                     </div>

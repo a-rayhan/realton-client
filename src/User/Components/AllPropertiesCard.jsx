@@ -21,7 +21,7 @@ const AllPropertiesCard = ({ property }) => {
 
                 <div className="absolute bottom-6 right-6">
                     <p className="bg-green-800 text-white px-3 py-1 rounded-lg text-sm font-semibold">
-                        verified
+                        Verified
                     </p>
                 </div>
 

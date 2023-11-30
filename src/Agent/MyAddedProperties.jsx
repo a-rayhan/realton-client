@@ -1,6 +1,16 @@
+import useAuth from "../Hooks/useAuth";
 import MyAddedPropertiesCard from "./MyAddedPropertiesCard";
+import useProperties from "../Hooks/useProperties";
 
 const MyAddedProperties = () => {
+
+    const [properties] = useProperties();
+
+    const { user } = useAuth();
+
+    const propertyFilter = properties.filter(property => user.email == property.useremail);
+
+
     return (
         <div>
             <div className="mb-14">
@@ -13,12 +23,10 @@ const MyAddedProperties = () => {
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                <MyAddedPropertiesCard />
-                <MyAddedPropertiesCard />
-                <MyAddedPropertiesCard />
-                <MyAddedPropertiesCard />
-                <MyAddedPropertiesCard />
-                <MyAddedPropertiesCard />
+
+                {
+                    propertyFilter.map(property => <MyAddedPropertiesCard key={property._id} property={property} />)
+                }
             </div>
         </div>
     );

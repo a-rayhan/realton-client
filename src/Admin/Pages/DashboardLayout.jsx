@@ -6,6 +6,7 @@ import AgentDashboardNav from "../../Agent/AgentDashboardNav";
 import UserDashboardNav from "../../User/Components/UserDashboardNav";
 import useAdmin from "../../Hooks/useAdmin";
 import useAgent from "../../Hooks/useAgent";
+import Navbar from "../../User/Components/Navbar/Navbar";
 
 const DashboardLayout = () => {
 
@@ -17,7 +18,7 @@ const DashboardLayout = () => {
 
     return (
         <div className="max-w-full mx-auto px-6">
-            <DashboardNavbar />
+            <Navbar />
             <div className="flex">
                 <div className="w-[300px] h-screen hidden xl:block">
 

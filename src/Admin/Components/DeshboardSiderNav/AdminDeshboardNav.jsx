@@ -1,8 +1,23 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { IoCompassOutline } from "react-icons/io5";
+import useAuth from "../../../Hooks/useAuth";
 // import useAdmin from "../../../Hooks/useAdmin";
 
 const AdminDeshboardNav = () => {
+
+    const { logOut } = useAuth();
+
+    const navigate = useNavigate();
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {
+                navigate('/')
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
+    }
     
     return (
         <div>
@@ -56,7 +71,7 @@ const AdminDeshboardNav = () => {
 
                     <ul className="mt-3 flex flex-col gap-2">
                         <li>
-                            <NavLink className='flex items-center gap-2 font-medium px-2 py-3 rounded-lg hover:bg-black hover:text-white'>
+                            <NavLink onClick={handleLogOut} to='/login' className='flex items-center gap-2 font-medium px-2 py-3 rounded-lg hover:bg-black hover:text-white'>
                                 <IoCompassOutline className='text-xl' />
                                 Logout
                             </NavLink>

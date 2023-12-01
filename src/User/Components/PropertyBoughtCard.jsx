@@ -1,7 +1,4 @@
-import { FaRegHeart, FaRegTrashAlt } from "react-icons/fa";
-import { FiExternalLink } from "react-icons/fi";
 import { IoBedOutline } from "react-icons/io5";
-import { MdOutlineLibraryAdd } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 
 const PropertyBoughtCard = () => {

@@ -1,48 +1,59 @@
 import { MdArrowOutward } from "react-icons/md";
+import useAuth from "../../Hooks/useAuth";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 
 const PostReview = () => {
+
+    const { user } = useAuth();
+
+    const axiosPublic = useAxiosPublic();
+
+    const {
+        register,
+        handleSubmit,
+        reset,
+    } = useForm();
+
+    const onSubmit = (data) => {
+        const reviewInfo = {
+            details: data.details,
+            username: user?.displayName,
+            useremail: user?.email,
+            userphoto: user?.photoURL,
+        }
+
+        console.log(reviewInfo);
+
+        axiosPublic.post('/reviews', reviewInfo)
+            .then(res => {
+                if (res.data.insertedId) {
+                    reset();
+
+                    Swal.fire({
+                        icon: "success",
+                        title: 'Review added successfully',
+                    });
+
+
+                }
+            }).catch((error) => {
+                // An error occurred
+                console.log(error.message);
+            });
+    }
+
     return (
         <div>
-            <form>
-                <div className="w-full mx-auto mb-3">
-                    <div className="flex flex-col">
-                        <label className="md:px-4 mb-1">
-                            Email
-                        </label>
-
-                        <input type="text" name="name" placeholder="Enter car name" className="border border-[#434344] py-4 px-6 rounded-lg placeholder:text-lg" required />
-                    </div>
-                </div>
-
-                <div className="grid xl:grid-cols-2 gap-x-5">
-                    <div className="w-full mx-auto mb-3">
-                        <div className="flex flex-col">
-                            <label className="md:px-4 mb-1">
-                                Name
-                            </label>
-
-                            <input type="text" name="name" placeholder="Enter car name" className="border border-[#434344] py-4 px-6 rounded-lg placeholder:text-lg" required />
-                        </div>
-                    </div>
-
-                    <div className="w-full mx-auto mb-3">
-                        <div className="flex flex-col">
-                            <label className="md:px-4 mb-1">
-                                Brand Name
-                            </label>
-
-                            <input type="text" name="brand" placeholder="Enter car brand" className="border border-[#434344] py-4 px-6 rounded-lg placeholder:text-lg" />
-                        </div>
-                    </div>
-                </div>
-
+            <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="w-full mx-auto mb-7">
                     <div className="flex flex-col">
                         <label className="md:px-4 mb-1">
-                            Description
+                            Review Description
                         </label>
 
-                        <textarea rows={5} type="text" name="details" placeholder="Enter short description" className="border border-[#434344] py-4 px-6 rounded-lg placeholder:text-lg" />
+                        <textarea rows={5} type="text" {...register("details")} name="details" placeholder="Enter short description" className="border border-[#434344] py-4 px-6 rounded-lg placeholder:text-lg" />
                     </div>
                 </div>
 

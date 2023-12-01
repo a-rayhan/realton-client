@@ -70,7 +70,7 @@ const router = createBrowserRouter([
                 element: <AgentRoute><MyAddedProperties /></AgentRoute>
             },
             {
-                path: 'updateproperty',
+                path: 'updateproperty/:updateId',
                 element: <AgentRoute><UpdateProperty /></AgentRoute>
             },
             {

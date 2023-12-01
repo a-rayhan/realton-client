@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 import { FaRegTrashAlt } from "react-icons/fa";
 
 const MyAddedPropertiesCard = ({ property }) => {
-    const { title, price, location, username, photo, userphoto, status } = property;
+    const { _id, title, price, location, username, photo, userphoto, status } = property;
     return (
         <div className="bg-white rounded-xl cursor-pointer">
             <div className="rounded-t-xl h-52 w-full relative">
@@ -39,7 +39,7 @@ const MyAddedPropertiesCard = ({ property }) => {
                     </p>
                 </div>
 
-                <NavLink to='/dashboard/updateproperty' className="absolute top-6 left-6">
+                <NavLink to={`/dashboard/updateproperty/${_id}`} className="absolute top-6 left-6">
                     <p className="bg-white px-3 py-2 rounded-lg text-sm font-medium uppercase flex items-center gap-x-1">
                         Update
                     </p>

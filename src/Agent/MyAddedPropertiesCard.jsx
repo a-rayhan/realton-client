@@ -4,7 +4,7 @@ import { CiSquareMore } from "react-icons/ci";
 import { NavLink } from "react-router-dom";
 import { FaRegTrashAlt } from "react-icons/fa";
 
-const MyAddedPropertiesCard = ({ property }) => {
+const MyAddedPropertiesCard = ({ property, handleDeleteItem }) => {
     const { _id, title, price, location, username, photo, userphoto, status } = property;
     return (
         <div className="bg-white rounded-xl cursor-pointer">
@@ -33,8 +33,8 @@ const MyAddedPropertiesCard = ({ property }) => {
                     }
                 </div>
 
-                <div className="absolute top-6 right-6">
-                    <p className="bg-white px-3 py-2 rounded-lg text-lg font-medium uppercase flex items-center gap-x-1">
+                <div className="absolute top-6 right-6 cursor-pointer">
+                    <p onClick={() => handleDeleteItem(_id)} className="bg-white px-3 py-2 rounded-lg text-lg font-medium uppercase flex items-center gap-x-1">
                         <FaRegTrashAlt />
                     </p>
                 </div>

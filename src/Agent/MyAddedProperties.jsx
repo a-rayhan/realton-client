@@ -1,6 +1,7 @@
 import useAuth from "../Hooks/useAuth";
 import MyAddedPropertiesCard from "./MyAddedPropertiesCard";
 import useProperties from "../Hooks/useProperties";
+import Swal from "sweetalert2";
 
 const MyAddedProperties = () => {
 
@@ -10,6 +11,34 @@ const MyAddedProperties = () => {
 
     const propertyFilter = properties.filter(property => user.email == property.useremail);
 
+    const handleDeleteItem = id => {
+        console.log(id);
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to delete this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://127.0.0.1:5000/properties/${id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            Swal.fire(
+                                'Deleted!',
+                                'Your property has been deleted.',
+                                'success'
+                            )
+                        }
+                    })
+            }
+        })
+    }
 
     return (
         <div>
@@ -25,7 +54,7 @@ const MyAddedProperties = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
 
                 {
-                    propertyFilter.map(property => <MyAddedPropertiesCard key={property._id} property={property} />)
+                    propertyFilter.map(property => <MyAddedPropertiesCard key={property._id} property={property} handleDeleteItem={handleDeleteItem} />)
                 }
             </div>
         </div>

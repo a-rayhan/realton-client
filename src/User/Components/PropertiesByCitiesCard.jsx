@@ -1,17 +1,17 @@
 import { MdArrowOutward } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 
-const PropertiesByCitiesCard = () => {
+const PropertiesByCitiesCard = ({ img, name }) => {
     return (
         <div>
             <div className="w-full h-[362px] rounded-xl relative">
-                <img src="https://homez.ibthemespro.com/images/listings/city-listing-2.png" alt="" className="w-full h-[362px] rounded-xl object-cover" />
+                <img src={img} alt="" className="w-full h-[362px] rounded-xl object-cover" />
 
                 <div className="absolute top-0 left-0 bg-black w-full h-full rounded-xl opacity-25"></div>
 
                 <div className="absolute top-6 left-6">
                     <p className="text-white font-semibold mb-2">
-                        Los Angeles
+                        {name}
                     </p>
 
                     <p className="text-white text-sm">

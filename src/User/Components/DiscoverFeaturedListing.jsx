@@ -2,8 +2,14 @@ import { NavLink } from "react-router-dom";
 import DiscoverFeaturedListingCard from "./DiscoverFeaturedListingCard";
 import SectionTitle from "./SectionTitle";
 import { MdArrowOutward } from "react-icons/md";
+import useProperties from "../../Hooks/useProperties";
 
 const DiscoverFeaturedListing = () => {
+
+    const [properties] = useProperties();
+
+    const propertiesFilter = properties.filter(property => property.advertise === 'advertised');
+
     return (
         <div className="bg-[#f7f7f7]">
             <div className="max-w-7xl mx-auto px-6 py-24">
@@ -20,9 +26,10 @@ const DiscoverFeaturedListing = () => {
                 </div>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <DiscoverFeaturedListingCard />
-                    <DiscoverFeaturedListingCard />
-                    <DiscoverFeaturedListingCard />
+
+                    {
+                        propertiesFilter.map(property => <DiscoverFeaturedListingCard key={property._id} property={property} />)
+                    }
                 </div>
             </div>
         </div>

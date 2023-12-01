@@ -42,6 +42,12 @@ const AdminDeshboardNav = () => {
                                 Manage Reviews
                             </NavLink>
                         </li>
+                        <li>
+                            <NavLink to='/dashboard/advertise' className='flex items-center gap-2 font-medium px-2 py-3 rounded-lg hover:bg-black hover:text-white'>
+                                <IoCompassOutline className='text-xl' />
+                                Advertise property
+                            </NavLink>
+                        </li>
                     </ul>
                 </div>
 

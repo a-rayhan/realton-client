@@ -24,6 +24,7 @@ import PrivateRoutes from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
 import AgentRoute from "./AgentRoute";
 import ErrorPage from "../ErrorPage/ErrorPage";
+import Advertise from "../Admin/Components/Advertise";
 
 const router = createBrowserRouter([
     {
@@ -96,6 +97,10 @@ const router = createBrowserRouter([
             {
                 path: 'managereviews',
                 element: <AdminRoute><ManageReviews /></AdminRoute>
+            },
+            {
+                path: 'advertise',
+                element: <AdminRoute><Advertise /></AdminRoute>
             },
             {
                 path: 'addnew',

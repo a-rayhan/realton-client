@@ -7,15 +7,18 @@ import { LuBath } from "react-icons/lu";
 import { CiSquareMore } from "react-icons/ci";
 import { NavLink } from "react-router-dom";
 
-const DiscoverFeaturedListingCard = () => {
+const DiscoverFeaturedListingCard = ({ property }) => {
+
+    const { title, price, location, username, photo, userphoto } = property;
+
     return (
         <div className="bg-white rounded-xl cursor-pointer">
             <div className="rounded-t-xl h-64 w-full relative">
-                <img src="https://homez.ibthemespro.com/images/listings/g1-1.jpg" alt="" className="rounded-t-xl w-full h-full object-cover" />
+                <img src={photo} alt="" className="rounded-t-xl w-full h-full object-cover" />
 
                 <div className="absolute bottom-6 left-6">
                     <p className="bg-white px-3 py-1 rounded-lg text-sm font-semibold">
-                        Net worth: $200k
+                        ${price}
                     </p>
                 </div>
 
@@ -28,18 +31,18 @@ const DiscoverFeaturedListingCard = () => {
                 <div className="absolute top-6 left-6">
                     <p className="bg-[#eb6753] text-white px-3 py-1 rounded-lg text-sm font-medium uppercase flex items-center gap-x-1">
                         <SlEnergy />
-                        Advertise
+                        Advertised
                     </p>
                 </div>
             </div>
 
             <div className="p-6">
                 <p className="text-lg font-semibold mb-1 hover:underline">
-                    Equestrian  Family Home
+                    {title}
                 </p>
 
                 <p className="text-sm">
-                    New York City, CA, USA
+                    {location}
                 </p>
 
                 <div className="flex items-center gap-6 my-4">

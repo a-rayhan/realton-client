@@ -19,16 +19,16 @@ const DiscoverFeaturedListing = () => {
                         description='Aliquam lacinia diam quis lacus euismod'
                     />
 
-                    <NavLink className="hidden lg:flex items-center gap-x-2 border border-black px-6 py-3 rounded-xl hover:bg-black hover:text-white font-semibold">
+                    <NavLink to='/properties' className="hidden lg:flex items-center gap-x-2 border border-black px-6 py-3 rounded-xl hover:bg-black hover:text-white font-semibold">
                         See All Properties
                         <MdArrowOutward className='text-xl' />
                     </NavLink>
                 </div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
 
                     {
-                        propertiesFilter.map(property => <DiscoverFeaturedListingCard key={property._id} property={property} />)
+                        propertiesFilter.slice(0, 4).map(property => <DiscoverFeaturedListingCard key={property._id} property={property} />)
                     }
                 </div>
             </div>

@@ -9,7 +9,7 @@ import { NavLink } from "react-router-dom";
 
 const AllPropertiesCard = ({ property }) => {
 
-    const { title, price, location, username, photo, userphoto } = property;
+    const { title, price, location, username, photo, userphoto, advertise } = property;
     return (
         <div className="bg-white rounded-xl cursor-pointer">
             <div className="rounded-t-xl h-64 w-full relative">
@@ -27,12 +27,14 @@ const AllPropertiesCard = ({ property }) => {
                     </p>
                 </div>
 
-                <div className="absolute top-6 left-6">
-                    <p className="bg-[#eb6753] text-white px-3 py-1 rounded-lg text-sm font-medium uppercase flex items-center gap-x-1">
-                        <SlEnergy />
-                        Advertise
-                    </p>
-                </div>
+                {
+                    advertise && <div className="absolute top-6 left-6">
+                        <p className="bg-[#eb6753] text-white px-3 py-1 rounded-lg text-sm font-medium uppercase flex items-center gap-x-1">
+                            <SlEnergy />
+                            Advertised
+                        </p>
+                    </div>
+                }
             </div>
 
             <div className="p-6">

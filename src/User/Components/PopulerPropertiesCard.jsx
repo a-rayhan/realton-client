@@ -15,14 +15,7 @@ const PopulerPropertiesCard = () => {
 
                 <div className="absolute bottom-6 left-6">
                     <p className="bg-white px-3 py-1 rounded-lg text-sm font-semibold">
-                        Net worth: $200k
-                    </p>
-                </div>
-
-                <div className="absolute top-6 left-6">
-                    <p className="bg-[#eb6753] text-white px-3 py-1 rounded-lg text-sm font-medium uppercase flex items-center gap-x-1">
-                        <SlEnergy />
-                        Advertise
+                        Sold: $200k
                     </p>
                 </div>
             </div>

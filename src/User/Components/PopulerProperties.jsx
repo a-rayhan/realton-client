@@ -22,7 +22,7 @@ const PopulerProperties = () => {
                 </div>
 
                 <div className="flex justify-center pt-24">
-                    <NavLink className="flex items-center gap-x-2 px-6 py-4 rounded-xl text-white font-semibold bg-[#eb6753]">
+                    <NavLink to='/properties' className="flex items-center gap-x-2 px-6 py-4 rounded-xl text-white font-semibold bg-[#eb6753]">
                         See All Propertise
                         <MdArrowOutward className='text-xl' />
                     </NavLink>

@@ -12,6 +12,7 @@ const DiscoverFeaturedListingCard = ({ property }) => {
     const { title, price, location, username, photo, userphoto } = property;
 
     return (
+
         <div className="bg-white rounded-xl cursor-pointer">
             <div className="rounded-t-xl h-64 w-full relative">
                 <img src={photo} alt="" className="rounded-t-xl w-full h-full object-cover" />
@@ -45,23 +46,38 @@ const DiscoverFeaturedListingCard = ({ property }) => {
                     {location}
                 </p>
 
-                <div className="flex items-center gap-6 my-4">
-                    <div className="flex items-center gap-x-2">
-                        <IoBedOutline />
+                <div className="flex justify-between items-center gap-8 my-4">
+                    <div>
+                        <div className="flex items-center gap-x-2">
+                            <IoBedOutline />
+                            <p className="text-sm">
+                                1
+                            </p>
+                        </div>
                         <p className="text-sm">
-                            1 bed
+                            bed
                         </p>
                     </div>
-                    <div className="flex items-center gap-x-2">
-                        <LuBath />
+                    <div>
+                        <div className="flex items-center gap-x-2">
+                            <LuBath />
+                            <p className="text-sm">
+                                1
+                            </p>
+                        </div>
                         <p className="text-sm">
-                            2 bath
+                            bath
                         </p>
                     </div>
-                    <div className="flex items-center gap-x-2">
-                        <CiSquareMore />
+                    <div>
+                        <div className="flex items-center gap-x-2">
+                            <CiSquareMore />
+                            <p className="text-sm">
+                                1200
+                            </p>
+                        </div>
                         <p className="text-sm">
-                            1200 sqft
+                            sqft
                         </p>
                     </div>
                 </div>

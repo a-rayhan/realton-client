@@ -1,8 +1,18 @@
 import { CgProfile } from "react-icons/cg";
 import { FaFacebookF, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import useAuth from "../../../Hooks/useAuth";
 
 const MobileNavbar = () => {
+
+    const { user, logout } = useAuth();
+
+    const handleLogout = () => {
+        logout()
+            .then(() => { })
+            .catch(error => console.log(error.message));
+    }
+
     return (
         <div>
             <div className="bg-[#eb675312] px-10 py-6 shadow mb-10">
@@ -31,14 +41,25 @@ const MobileNavbar = () => {
                 </li>
             </ul>
 
-            <div className="px-8 py-3 text-lg font-medium cursor-pointer bg-[#eb675312]">
-                <div className="flex items-center gap-x-2">
-                    <CgProfile className='text-2xl' />
-                    <NavLink>
-                        Login/Register
-                    </NavLink>
-                </div>
-            </div>
+            {
+                user ? <>
+                    <div className="px-8 py-3 text-lg font-medium cursor-pointer bg-[#eb675312]">
+                        <NavLink onClick={handleLogout} to='/login'>
+                            Logout
+                        </NavLink>
+                    </div>
+                </> :
+                    <>
+                        <div className="px-8 py-3 text-lg font-medium cursor-pointer bg-[#eb675312]">
+                            <div className="flex items-center gap-x-2">
+                                <CgProfile className='text-2xl' />
+                                <NavLink>
+                                    Login/Register
+                                </NavLink>
+                            </div>
+                        </div>
+                    </>
+            }
 
             <hr className="my-8" />
 

@@ -1,4 +1,6 @@
 import { IoBedOutline } from "react-icons/io5";
+import { LuBath } from "react-icons/lu";
+import { CiSquareMore } from "react-icons/ci";
 import { NavLink } from "react-router-dom";
 
 const PropertyBoughtCard = () => {
@@ -43,7 +45,7 @@ const PropertyBoughtCard = () => {
                     </div>
                     <div>
                         <div className="flex items-center gap-x-2">
-                            <IoBedOutline />
+                            <LuBath />
                             <p className="text-sm">
                                 1
                             </p>
@@ -54,7 +56,7 @@ const PropertyBoughtCard = () => {
                     </div>
                     <div>
                         <div className="flex items-center gap-x-2">
-                            <IoBedOutline />
+                            <CiSquareMore />
                             <p className="text-sm">
                                 1200
                             </p>

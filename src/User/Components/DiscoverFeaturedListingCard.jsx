@@ -3,6 +3,8 @@ import { FiExternalLink } from "react-icons/fi";
 import { MdOutlineLibraryAdd } from "react-icons/md";
 import { FaRegHeart } from "react-icons/fa";
 import { SlEnergy } from "react-icons/sl";
+import { LuBath } from "react-icons/lu";
+import { CiSquareMore } from "react-icons/ci";
 import { NavLink } from "react-router-dom";
 
 const DiscoverFeaturedListingCard = () => {
@@ -48,13 +50,13 @@ const DiscoverFeaturedListingCard = () => {
                         </p>
                     </div>
                     <div className="flex items-center gap-x-2">
-                        <IoBedOutline />
+                        <LuBath />
                         <p className="text-sm">
                             2 bath
                         </p>
                     </div>
                     <div className="flex items-center gap-x-2">
-                        <IoBedOutline />
+                        <CiSquareMore />
                         <p className="text-sm">
                             1200 sqft
                         </p>

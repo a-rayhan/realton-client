@@ -3,6 +3,8 @@ import { FiExternalLink } from "react-icons/fi";
 import { IoBedOutline } from "react-icons/io5";
 import { MdOutlineLibraryAdd } from "react-icons/md";
 import { SlEnergy } from "react-icons/sl";
+import { LuBath } from "react-icons/lu";
+import { CiSquareMore } from "react-icons/ci";
 import { NavLink } from "react-router-dom";
 
 const AllPropertiesCard = ({ property }) => {
@@ -50,13 +52,13 @@ const AllPropertiesCard = ({ property }) => {
                         </p>
                     </div>
                     <div className="flex items-center gap-x-2">
-                        <IoBedOutline />
+                        <LuBath />
                         <p className="text-sm">
                             2 bath
                         </p>
                     </div>
                     <div className="flex items-center gap-x-2">
-                        <IoBedOutline />
+                        <CiSquareMore />
                         <p className="text-sm">
                             1200 sqft
                         </p>

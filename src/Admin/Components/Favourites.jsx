@@ -27,7 +27,7 @@ const Favourites = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://127.0.0.1:5000/wishlists/${id}`, {
+                fetch(`https://realton-server.vercel.app//wishlists/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

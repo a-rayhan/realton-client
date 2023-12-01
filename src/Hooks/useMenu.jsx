@@ -5,7 +5,7 @@ const useMenu = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch('http://127.0.0.1:5000/menu')
+        fetch('https://realton-server.vercel.app//menu')
             .then(res => res.json())
             .then(data => {
                 setMenu(data);

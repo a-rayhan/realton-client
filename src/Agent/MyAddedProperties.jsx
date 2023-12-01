@@ -23,7 +23,7 @@ const MyAddedProperties = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://127.0.0.1:5000/properties/${id}`, {
+                fetch(`https://realton-server.vercel.app//properties/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

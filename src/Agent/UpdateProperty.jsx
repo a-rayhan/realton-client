@@ -35,7 +35,7 @@ const UpdateProperty = () => {
         const updateProperty = { title, price, photo, location, rating, description };
         console.log(updateProperty);
 
-        fetch(`http://127.0.0.1:5000/properties/${propertyItem._id}`, {
+        fetch(`https://realton-server.vercel.app//properties/${propertyItem._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

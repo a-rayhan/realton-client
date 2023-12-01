@@ -1,6 +1,49 @@
+import { useQuery } from "@tanstack/react-query";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import FavoriteCard from "./FavoriteCard";
+import Swal from "sweetalert2";
 
 const Favourites = () => {
+
+    const axiosSecure = useAxiosSecure();
+
+    const { refetch, data: wishlists = [] } = useQuery({
+        queryKey: ['wishlists'],
+        queryFn: async () => {
+            const res = await axiosSecure.get('/wishlists');
+            return res.data;
+        }
+    })
+
+    const handleDeleteItem = id => {
+        console.log(id);
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to delete this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://127.0.0.1:5000/wishlists/${id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            Swal.fire(
+                                'Deleted!',
+                                'Your wishlist item has been deleted.',
+                                'success'
+                            )
+                        }
+                    })
+            }
+        })
+    }
+
     return (
         <div>
             <div className="mb-14">
@@ -13,12 +56,9 @@ const Favourites = () => {
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                <FavoriteCard />
-                <FavoriteCard />
-                <FavoriteCard />
-                <FavoriteCard />
-                <FavoriteCard />
-                <FavoriteCard />
+                {
+                    wishlists.map(wishlist => <FavoriteCard key={wishlist._id} wishlist={wishlist} handleDeleteItem={handleDeleteItem} />)
+                }
             </div>
         </div>
     );

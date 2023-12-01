@@ -9,7 +9,7 @@ import { NavLink } from "react-router-dom";
 
 const AllPropertiesCard = ({ property }) => {
 
-    const { title, price, location, username, photo, userphoto, advertise } = property;
+    const { _id, title, price, location, username, photo, userphoto, advertise } = property;
     return (
         <div className="bg-white rounded-xl cursor-pointer">
             <div className="rounded-t-xl h-64 w-full relative">
@@ -38,7 +38,7 @@ const AllPropertiesCard = ({ property }) => {
             </div>
 
             <div className="p-6">
-                <NavLink to='/propertiesdetails' className="text-lg font-semibold mb-1 hover:underline">
+                <NavLink to={`/propertiesdetails/${_id}`} className="text-lg font-semibold mb-1 hover:underline">
                     {title}
                 </NavLink>
 

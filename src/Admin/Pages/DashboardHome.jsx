@@ -35,57 +35,6 @@ const DashboardHome = () => {
                     </div>
                 </div>
             </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div className="bg-white p-6 rounded-2xl flex justify-between items-center gap-8 shadow">
-                    <div>
-                        <p>
-                            All Properties
-                        </p>
-
-                        <p className="text-3xl font-semibold">
-                            583
-                        </p>
-                    </div>
-
-                    <div className="w-20 h-20 rounded-full bg-[#f7f7f7] flex justify-center items-center">
-                        <RiHome3Line className='text-4xl' />
-                    </div>
-                </div>
-
-                <div className="bg-white p-6 rounded-2xl flex justify-between items-center gap-8 shadow">
-                    <div>
-                        <p>
-                            Total Users
-                        </p>
-
-                        <p className="text-3xl font-semibold">
-                            583
-                        </p>
-                    </div>
-
-                    <div className="w-20 h-20 rounded-full bg-[#f7f7f7] flex justify-center items-center">
-                        <RiHome3Line className='text-4xl' />
-                    </div>
-                </div>
-
-                <div className="bg-white p-6 rounded-2xl flex justify-between items-center gap-8 shadow">
-                    <div>
-                        <p>
-                            Total Favorites
-                        </p>
-
-                        <p className="text-3xl font-semibold">
-                            583
-                        </p>
-                    </div>
-
-                    <div className="w-20 h-20 rounded-full bg-[#f7f7f7] flex justify-center items-center">
-                        <RiHome3Line className='text-4xl' />
-                    </div>
-                </div>
-            </div>
-
         </div>
     );
 };

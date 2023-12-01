@@ -7,15 +7,17 @@ import { LuBath } from "react-icons/lu";
 import { CiSquareMore } from "react-icons/ci";
 import { NavLink } from "react-router-dom";
 
-const FavoriteCard = () => {
+const FavoriteCard = ({ wishlist, handleDeleteItem }) => {
+    const { _id, title, price, location, username, photo, userphoto, advertise } = wishlist;
+
     return (
         <div className="bg-white rounded-xl cursor-pointer">
             <div className="rounded-t-xl h-52 w-full relative">
-                <img src="https://homez.ibthemespro.com/images/listings/g1-1.jpg" alt="" className="rounded-t-xl w-full h-full object-cover" />
+                <img src={photo} alt="" className="rounded-t-xl w-full h-full object-cover" />
 
                 <div className="absolute bottom-6 left-6">
                     <p className="bg-white px-3 py-1 rounded-lg text-sm font-semibold">
-                        Net worth: $200k
+                        ${price}
                     </p>
                 </div>
 
@@ -25,7 +27,7 @@ const FavoriteCard = () => {
                     </p>
                 </div>
 
-                <div className="absolute top-6 right-6">
+                <div onClick={() => handleDeleteItem(_id)} className="absolute top-6 right-6">
                     <p className="bg-white px-3 py-2 rounded-lg text-lg font-medium uppercase flex items-center gap-x-1">
                         <FaRegTrashAlt />
                     </p>
@@ -34,11 +36,11 @@ const FavoriteCard = () => {
 
             <div className="p-6">
                 <p className="text-lg font-semibold mb-1 hover:underline">
-                    Equestrian  Family Home
+                    {title}
                 </p>
 
                 <p className="text-sm">
-                    New York City, CA, USA
+                    {location}
                 </p>
 
                 <div className="flex justify-between items-center gap-8 my-4">
@@ -82,7 +84,7 @@ const FavoriteCard = () => {
                 <div className="flex flex-col justify-between mt-4">
                     <div className="flex gap-4 mb-5">
                         <div className="w-10 h-10 rounded-full bg-slate-400">
-                            <img src="https://homez.ibthemespro.com/images/testimonials/testimonial-1.png" alt="" className="w-full h-full rounded-full object-cover" />
+                            <img src={userphoto} alt="" className="w-full h-full rounded-full object-cover" />
                         </div>
 
                         <div>
@@ -91,7 +93,7 @@ const FavoriteCard = () => {
                             </p>
 
                             <p className="font-semibold mb-1">
-                                Leslie Alexander
+                                {username}
                             </p>
                         </div>
                     </div>
@@ -106,7 +108,7 @@ const FavoriteCard = () => {
                         <div>
                             <NavLink to='/dashboard/addnew' className="flex items-center border border-black px-2 py-2 rounded-xl hover:border-black hover:bg-black hover:text-white text-sm">
                                 Make an offer
-                                
+
                             </NavLink>
                         </div>
                     </div>

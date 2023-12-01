@@ -6,44 +6,6 @@ import { useEffect, useState } from "react";
 
 const UpdateProperty = () => {
 
-    // const handleUpdateProperty = e => {
-    //     e.preventDefault();
-    //     const form = e.target;
-
-    //     const title = form.title.value;
-    //     const price = form.price.value;
-    //     const photo = form.photo.value;
-    //     const location = form.location.value;
-    //     const rating = form.rating.value;
-    //     const description = form.description.value;
-
-    //     console.log(title, price, photo, location, rating, description);
-
-    //     const updateProperty = { title, price, photo, location, rating, description };
-    //     console.log(updateProperty);
-
-    //     fetch(`http://127.0.0.1:5000/properties/${property._id}`, {
-    //         method: 'PUT',
-    //         headers: {
-    //             'content-type': 'application/json'
-    //         },
-    //         body: JSON.stringify(updateProperty)
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             console.log(data);
-    //             if (data.modifiedCount > 0) {
-    //                 Swal.fire({
-    //                     title: 'success!',
-    //                     text: 'Updated succesfully',
-    //                     icon: 'success',
-    //                     confirmButtonText: 'Ok'
-    //                 })
-    //                 form.reset();
-    //             }
-    //         })
-    // }
-
     const [properties] = useProperties();
 
     const { user } = useAuth();
